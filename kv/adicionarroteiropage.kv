@@ -1,0 +1,125 @@
+<AdicionarRoteiroPage>:
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("#9DC3E6")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: "icones/bg1.png"
+
+        # selecionar o continente
+        Label:
+            pos_hint: {"right": 1, "top": 1}
+            size_hint: 1, 0.05
+            bold: True
+            markup: True
+            text: "Selecione o Continente:"
+            id: label_selecione_cliente
+        ScrollView:
+            pos_hint: {"right": 1, "top": 0.92}
+            size_hint: 1, 0.15
+            GridLayout:
+                rows: 1
+                id: lista_clientes
+                size_hint_x: None
+                width: self.minimum_width
+                col_default_width: "100dp"
+                col_force_default: True
+        # data da viagem
+        GridLayout:
+            rows: 1
+            pos_hint: {"right": 0.9, "top": 0.75}
+            size_hint: 0.8, 0.075
+            Label:
+                text: "Duração(dias) - Inicio :"
+                id: label_data
+            TextInput:
+                id: data_viagem
+                hint_text: "Digite 99-99-9999"
+        # selecionar a duração
+        GridLayout:
+            rows: 1
+            pos_hint: {"right": 0.9, "top": 0.675}
+            size_hint: 0.8, 0.1
+            LabelButton:
+                text: "1"
+                id: 1_dia
+                on_release: app.selecionar_unidade("1_dia")
+            LabelButton:
+                text: "7"
+                id: 7_dias
+                on_release: app.selecionar_unidade("7_dias")
+            LabelButton:
+                text: "10"
+                id: 10_dias
+                on_release: app.selecionar_unidade("10_dias")
+            LabelButton:
+                text: "14"
+                id: 14_dias
+                on_release: app.selecionar_unidade("14_dias")
+            LabelButton:
+                text: "21"
+                id: 21_dias
+                on_release: app.selecionar_unidade("21_dias")
+        #selecionar produto
+        Label:
+            pos_hint: {"right": 1, "top": 0.575}
+            size_hint: 1, 0.05
+            bold: True
+            markup: True
+            text: "Selecione o Roteiro:"
+            id: label_selecione_produto
+        ScrollView:
+            pos_hint: {"right": 1, "top": 0.515}
+            size_hint: 1, 0.15
+            GridLayout:
+                rows: 1
+                id: lista_produtos
+                size_hint_x: None
+                width: self.minimum_width
+                col_default_width: "100dp"
+                col_force_default: True
+        # preço total
+        GridLayout:
+            rows: 1
+            pos_hint: {"right": 0.9, "top": 0.3}
+            size_hint: 0.8, 0.075
+            Label:
+                text: "Nr.Pessoas:"
+                id: label_quantidade
+            TextInput:
+                id: quantidade
+                hint_text: "0"
+        # quantidade
+        GridLayout:
+            rows: 1
+            pos_hint: {"right": 0.9, "top": 0.2}
+            size_hint: 0.8, 0.075
+            Label:
+                text: "Preço Total (R$):"
+                id: label_preco
+            TextInput:
+                id: preco_total
+                hint_text: "Digite apenas números"
+        # 3 botoes da homepage
+        GridLayout:
+            rows: 1
+            pos_hint:{"right": 1 ,"top": 0.12}
+            size_hint: 1, 0.12
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("#ED7A2B")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            ImageButton:
+                source: "icones/voltar.png"
+                on_release: app.mudar_tela("homepage")
+            ImageButton:
+                source: "icones/confirmar.png"
+                on_release: app.adicionar_venda()
+
+
+
+

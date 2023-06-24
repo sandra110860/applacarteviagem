@@ -1,0 +1,54 @@
+#:include kv/homepage.kv
+#:include kv/ajustespage.kv
+#:include kv/adicionarroteiropage.kv
+#:include kv/listaclientespage.kv
+#:include kv/fotoperfilpage.kv
+#:include kv/adicionarclientepage.kv
+#:include kv/listavendaspage.kv
+#:include kv/vendasoutroclientepage.kv
+#:include kv/loginpage.kv
+#:import utils kivy.utils
+
+FloatLayout:
+   canvas:
+      Color:
+         rgb: utils.get_color_from_hex("#001824")
+      Rectangle:
+         size: self.size
+         pos: self.pos
+   Image:
+      pos_hint: {"right": 1 , "top":0.95}
+      size_hint: 1, 0.25
+      source: "icones/icon.png"
+      id: foto_perfil
+   ScreenManager:
+      pos_hint: {"right": 1 , "top": 0.7}
+      size_hint: 1, 0.7
+      id: screen_manager
+      LoginPage:
+         name: "loginpage"
+         id: loginpage
+      HomePage:
+         name: "homepage"
+         id: homepage
+      AjustesPage:
+         name: "ajustespage"
+         id: ajustespage
+      AdicionarRoteiroPage:
+         name: "adicionarroteiropage"
+         id: adicionarroteiropage
+      ListaClientesPage:
+         name: "listaclientespage"
+         id: listaclientespage
+      FotoPerfilPage:
+         name: "fotoperfilpage"
+         id: fotoperfilpage
+      AdicionarClientePage:
+         name: "adicionarclientepage"
+         id: adicionarclientepage
+      ListaVendasPage:
+         name: "listavendaspage"
+         id: listavendaspage
+      VendasOutroClientePage:
+         name: "vendasoutroclientepage"
+         id: vendasoutroclientepage
